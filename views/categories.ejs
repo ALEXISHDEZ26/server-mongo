@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Catgorias</h1> 
+   <ul class="categories">
+    <% for(var i=0; i<categories.length; i++) {%>
+      <li class="category">
+        <span><%= categories[i]._id %></span>
+        <span><%= categories[i].nombre %></span>
+        <span><%= categories[i].pais %></span>
+        <span><%= categories[i].descripcion %></span>
+        <a href='/categories/<%= categories[i]._id %>'>Ver</a>
+      </li>
+    <% } %>
+  </ul>
+
+  <form action="/categories" method="POST">
+    <input type="text" placeholder="name" name="nombre">
+    <select name="pais" id="pais">
+        <option value="Mexico">Mexico</option>
+        <option value="USA">USA</option>
+        <option value="Francia">Francia</option>
+        <option value="China">China</option>
+    </select>
+    <input type="textarea" placeholder="descripcion" name="descripcion">
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
